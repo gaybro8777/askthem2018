@@ -8,15 +8,19 @@ end
 gem 'dotenv-rails', groups: [:development, :test]
 
 
+gem 'pg', '~> 0.18'
 gem 'rails', '~> 5.1.4'
-gem 'pg'
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
+gem 'devise'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+
 gem 'bootstrap', '~> 4.0.0'
+gem 'jquery-rails'
+gem "font-awesome-sass"
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
