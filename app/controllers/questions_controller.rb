@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
   before_action :authenticate_user!, only: :create
 
   def index
-    @questions = Question.all
+    @questions = Question.sorted_by_votes
   end
 
   def new

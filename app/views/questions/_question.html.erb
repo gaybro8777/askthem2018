@@ -1,6 +1,10 @@
 <div class="row border rounded">
   <div class="col-2">
-    <div class="text-center"><i class="up-arrow fas fa-arrow-up"></i></div>
+    <div class="text-center">
+      <%= link_to(votes_path(question_id: question.id), method: :post) do -%>
+        <i class="up-arrow fas fa-arrow-up"></i>
+      <% end -%>
+    </div>
     <div class="text-center"><%= question.vote_total -%></div>
     <div class="text-center">votes</div>
   </div>
