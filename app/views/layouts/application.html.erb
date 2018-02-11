@@ -30,8 +30,12 @@
           <a class="nav-link" href="#">About</a>
         </li>
       </ul>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <% if notice.present? -%>
+        <div class="row notice alert-primary"><%= notice -%></div>
+      <% end %>
+      <% if alert.present? -%>
+        <div class="row alert alert-primary"><%= alert -%></div>
+      <% end %>
       <%= yield %>
     </div>
   </body>

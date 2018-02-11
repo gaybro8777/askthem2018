@@ -1,0 +1,5 @@
+<%= form_for @question do |f|-%>
+  <%= f.select :contest_id, options_for_select(Contest.pluck(:name, :id)) -%>
+  <%= f.text_area :body -%>
+  <%= f.submit-%>
+<% end -%>
