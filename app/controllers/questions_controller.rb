@@ -1,6 +1,10 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!, only: :create
 
+  def index
+    @questions = Question.all
+  end
+
   def new
     if !user_signed_in?
       flash.notice = "please create an account before submitting a question"

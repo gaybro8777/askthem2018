@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root 'questions#index'
 
   resources :questions, :only => [:index, :new, :create]
+  resources :votes, :only => :create
 end
