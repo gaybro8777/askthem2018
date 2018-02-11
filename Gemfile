@@ -15,8 +15,7 @@ gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'devise'
-#for prod only, but doesn't work in a prod group as deploy env is different than prod env
-gem 'sendgrid-ruby'
+gem 'sendgrid-ruby', groups: [:production]
 
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
