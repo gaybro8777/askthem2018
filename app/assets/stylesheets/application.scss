@@ -14,3 +14,8 @@
  *= require_self
  */
 @import "bootstrap";
+
+.header {
+  background-image: image-url("usa.jpg");
+  padding-bottom: 100px;
+}

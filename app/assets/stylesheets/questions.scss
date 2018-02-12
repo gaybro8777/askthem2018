@@ -4,3 +4,13 @@
     color: black;
   }
 }
+
+.btn-question {
+  background-color: #fa7564;
+  color: #fff;
+  border: 1px solid #d77164;
+  &:hover {
+    color: #fff;
+    background-color: #d77164;
+  }
+}

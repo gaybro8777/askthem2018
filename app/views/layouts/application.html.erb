@@ -4,6 +4,7 @@
     <title>AskthemNew</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= favicon_link_tag -%>
 
     <%= csrf_meta_tags %>
 
@@ -13,30 +14,32 @@
   </head>
 
   <body>
-    <div class="container mt-4">
-      <ul class="nav">
-        <% if user_signed_in? -%>
+    <div class="container-fluid">
+      <div class="row header">
+        <ul class="nav">
+          <% if user_signed_in? -%>
+            <li class="nav-item">
+              <%= link_to('Logout', destroy_user_session_path, method: :delete, class: 'nav-link') -%>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to('Login', new_user_session_path, class: 'nav-link') -%>
+            </li>
+            <li class="nav-item">
+              <%= link_to('Register', new_user_registration_path, class: 'nav-link') -%>
+            </li>
+          <% end %>
           <li class="nav-item">
-            <%= link_to('Logout', destroy_user_session_path, method: :delete, class: 'nav-link') -%>
+            <a class="nav-link" href="#">About</a>
           </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to('Login', new_user_session_path, class: 'nav-link') -%>
-          </li>
-          <li class="nav-item">
-            <%= link_to('Register', new_user_registration_path, class: 'nav-link') -%>
-          </li>
+        </ul>
+        <% if notice.present? -%>
+          <div class="row notice alert-primary"><%= notice -%></div>
         <% end %>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>
-      </ul>
-      <% if notice.present? -%>
-        <div class="row notice alert-primary"><%= notice -%></div>
-      <% end %>
-      <% if alert.present? -%>
-        <div class="row alert alert-primary"><%= alert -%></div>
-      <% end %>
+        <% if alert.present? -%>
+          <div class="row alert alert-primary"><%= alert -%></div>
+        <% end %>
+      </div>
       <%= yield %>
     </div>
   </body>
