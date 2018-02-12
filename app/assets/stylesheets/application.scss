@@ -15,7 +15,10 @@
  */
 @import "bootstrap";
 
-.header {
+body {
   background-image: image-url("usa.jpg");
-  padding-bottom: 100px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
 }

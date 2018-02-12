@@ -14,9 +14,13 @@
   </head>
 
   <body>
-    <div class="container-fluid">
-      <div class="row header">
-        <ul class="nav">
+    <div class="container-fluid header">
+      <nav class="navbar navbar-light navbar-expand">
+        <a href="/" class="navbar-brand  mr-auto"><%= image_tag('logo.svg') -%></a>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
           <% if user_signed_in? -%>
             <li class="nav-item">
               <%= link_to('Logout', destroy_user_session_path, method: :delete, class: 'nav-link') -%>
@@ -29,10 +33,9 @@
               <%= link_to('Register', new_user_registration_path, class: 'nav-link') -%>
             </li>
           <% end %>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
         </ul>
+      </nav>
+      <div class="row">
         <% if notice.present? -%>
           <div class="row notice alert-primary"><%= notice -%></div>
         <% end %>
