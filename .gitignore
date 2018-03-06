@@ -9,6 +9,9 @@
 
 db/schema.rb
 
+# ignore the tech and civic life dataset
+/lib/vip.xml
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
