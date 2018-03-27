@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 
   resources :questions, :only => [:index, :new, :create]
   resources :votes, :only => :create
+  get 'search', to: 'search#index'
 end
