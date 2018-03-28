@@ -1,7 +1,7 @@
 class Candidate < ApplicationRecord
   belongs_to :contest
 
-  def name
+  def display_name
     primary_name
   end
 end
