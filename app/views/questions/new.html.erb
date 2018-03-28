@@ -1,5 +1,9 @@
-<%= form_for @question do |f|-%>
-  <%= f.select :contest_id, options_for_select(Contest.pluck(:name, :id)) -%>
-  <%= f.text_area :body -%>
-  <%= f.submit-%>
-<% end -%>
+<div class="row w-80">
+  <div class="col-12">
+    <%= form_for @question, html: {class: 'mw-100'} do |f|-%>
+      <div> <%= f.select :contest_id, '', {}, class: 'select2' -%> </div>
+      <%= f.text_area :body -%>
+      <%= f.submit-%>
+    <% end -%>
+  </div>
+</div>
