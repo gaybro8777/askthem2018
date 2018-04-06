@@ -1,1 +1,4 @@
 language: ruby
+before_script:
+  - psql -c "CREATE USER askthem;" -U postgres
+
