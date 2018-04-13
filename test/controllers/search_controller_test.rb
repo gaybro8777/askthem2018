@@ -7,6 +7,6 @@ class SearchControllerTest < ActionDispatch::IntegrationTest
     result = JSON.parse(response.body)
     assert_equal result['results'].size, 1
     assert_equal result['results'].first['text'],
-      "U.S. Representative"
+      "U.S. Representative - Washington's 4th congressional district"
   end
 end
