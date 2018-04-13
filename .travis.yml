@@ -3,11 +3,8 @@ services:
   - postgresql
 before_script:
   - sudo -u postgres psql -c "CREATE USER askthem SUPERUSER;"
-  - psql -c 'create database "askthem-test";' -U askthem -d postgres
+  - bin/rails db:create RAILS_ENV=test
   - bin/rails db:migrate RAILS_ENV=test
 addons:
-  postgresql: "10.3"
-env:
-  global:
-    - PGPORT=5433
+  postgresql: "9.6"
 
