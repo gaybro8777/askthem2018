@@ -21,6 +21,7 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to questions_path
     else
+      flash.now[:alert] = @question.errors.full_messages.join(' ')
       render 'new'
     end
   end
