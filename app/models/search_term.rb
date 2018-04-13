@@ -1,20 +1,6 @@
-class ContestSearch
+class SearchTerm < ApplicationRecord
   def self.search(query)
-    columns = %w(primary_office_name secondary_office_name electoral_district_name)
-    tsvector = to_tsvector(columns)
-    results = Contest.where("to_tsvector(#{tsvector}) @@ to_tsquery('english', ?)", to_tsquery(query)).order(case_statement)
-
-    if results.empty?
-      columns = %w(primary_name primary_party secondary_name)
-      tsvector = to_tsvector(columns)
-      results = Candidate.where("to_tsvector(#{tsvector}) @@ to_tsquery('english', ?)", to_tsquery(query))
-    end
-
-    results
-  end
-
-  def self.to_tsvector(columns)
-    columns.map {|c| "coalesce(#{c}, '')" }.join(" || ' ' || ")
+    where("to_tsvector(search_text) @@ to_tsquery('english', ?)", to_tsquery(query)).order(case_statement)
   end
 
   def self.to_tsquery(query)
@@ -46,5 +32,9 @@ CASE electoral_district_type
  ELSE 19
 END
     EOS
+  end
+
+  def self.populate!
+    connection.execute "REFRESH MATERIALIZED VIEW search_terms"
   end
 end
