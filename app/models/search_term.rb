@@ -1,6 +1,6 @@
 class SearchTerm < ApplicationRecord
   def self.search(query)
-    where("to_tsvector(search_text) @@ to_tsquery('english', ?)", to_tsquery(query)).order(case_statement)
+    where("search_text @@ to_tsquery('english', ?)", to_tsquery(query)).order(case_statement)
   end
 
   def self.to_tsquery(query)
