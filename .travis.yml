@@ -5,4 +5,5 @@ before_script:
   - psql -c "CREATE USER askthem SUPERUSER;" -U postgres
   - psql -c 'create database "askthem-test";' -U askthem -d postgres
   - bin/rails db:migrate RAILS_ENV=test
-
+addons:
+  postgresql: "10.3"
