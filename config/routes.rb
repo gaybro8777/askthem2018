@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'questions#index'
 
   resources :questions, :only => [:index, :new, :create]
+  resources :candidates, :only => [:index, :show]
   resources :votes, :only => :create
   get 'search', to: 'search#index', as: :search
 end

@@ -4,7 +4,7 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one:
+wa_congress:
   name: U.S. Representative
   electoral_district_name: Washington's 4th congressional district
   electoral_district_type: congressional
