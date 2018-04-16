@@ -13,3 +13,10 @@
     <%= question.body -%>
   </div>
 </div>
+<% if question.answers.any? %>
+  <div class="row border rounded bg-white">
+    <div class="col">
+      <%= link_to question.answers.first.candidate.primary_name, candidate_path(question.answers.first.candidate) -%>: <%= question.answers.first.body -%>
+    </div>
+  </div>
+<% end %>
