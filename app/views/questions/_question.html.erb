@@ -9,7 +9,8 @@
     <div class="text-center">votes</div>
   </div>
   <div class="col">
-    Question for: <%= question.contest.display_name -%><br />
+    <%= link_to "Question for: #{question.contest.display_name}", question_path(question) -%>
+    <br />
     <%= question.body -%>
   </div>
 </div>
