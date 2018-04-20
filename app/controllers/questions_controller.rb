@@ -30,6 +30,13 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
   end
 
+  def contest
+    @contest = Contest.find(params[:id])
+    @questions = @contest.questions.sorted_by_votes
+    @question = Question.new(contest: @contest)
+    render :index
+  end
+
   private
 
   def question_params

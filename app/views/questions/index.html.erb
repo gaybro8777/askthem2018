@@ -1,6 +1,20 @@
+<% if @contest.present? -%>
+  <div class="row justify-content-center">
+    <%= @contest.display_name -%>
+  </div>
+<% end %>
 <div class="row justify-content-center">
   <div class="col text-center mb-4">
-    <%= link_to "Ask a question!", new_question_path, class: "btn btn-lrg btn-question" -%>
+    <% if @contest.present? -%>
+      <%= form_for @question, html: {class: 'mw-100'} do |f|-%>
+        <%= f.hidden_field :contest_id -%>
+        <%= f.text_area :body -%>
+        <%= f.submit-%>
+      <% end -%>
+    <% else -%>
+      <%= select_tag :contest_id, '', class: 'select2' -%>
+      <!-- <%= link_to "Ask a question!", new_question_path, class: "btn btn-lrg btn-question" -%> -->
+    <% end %>
   </div>
 </div>
 <div class="row justify-content-center">

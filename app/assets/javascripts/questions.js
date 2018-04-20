@@ -11,4 +11,9 @@ $(document).ready(function() {
     minimumInputLength: 3,
     width: '200px'
   });
+
+  $('.select2').on('select2:select', function (e) {
+    var data = e.params.data;
+    window.location.pathname = 'contest/' + data['id'] + '/questions'
+  });
 });
