@@ -1,6 +1,7 @@
 <% if @contest.present? -%>
   <div class="row justify-content-center">
-    <%= @contest.display_name -%>
+    <%= @contest.display_name -%>:
+    <%= @contest.candidates.map(&:primary_name).join(", ") -%>
   </div>
 <% end %>
 <div class="row justify-content-center">
